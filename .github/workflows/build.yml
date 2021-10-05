@@ -28,9 +28,9 @@ jobs:
                   echo "RELEASE_DATE=$(Get-Date (Get-Date).ToUniversalTime() -UFormat '%Y.%m.%d - %R')" >> $GITHUB_ENV
                   echo "LAST_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
             - name: test env vars
-                run: |
-                echo ${{env.RELEASE_DATE}}
-                echo ${{env.LAST_COMMIT}}
+              run: |
+                  echo ${{env.RELEASE_DATE}}
+                  echo ${{env.LAST_COMMIT}}
             - name: release
               uses: ncipollo/release-action@v1
               with:
