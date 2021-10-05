@@ -23,6 +23,7 @@ pacman-key --init && pacman-key --populate
 # generate mirrorlist
 pacman -Sy --noconfirm reflector
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+echo "generating mirrorlist in $COUNTRY_CODE"
 reflector -c $COUNTRY_CODE -p https --sort rate --save /etc/pacman.d/mirrorlist
 
 # install some packages
