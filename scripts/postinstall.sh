@@ -14,6 +14,7 @@ COUNTRY_CODE=$(curl -sL ipinfo.io/country)
 # create default user
 # (sudo will need a password later, this is userful for the installer)
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/wheel
+chmod 440 /etc/sudoers.d/wheel
 useradd -mG wheel -s /bin/bash diak -p '$6$nI/Ya5wm4s9xzbWL$3bmSK4Y.vqFnxDQCof.sMlDmnNHzh/7pUGUoJO9RUu4l9ZA.De/MebzGCDBP9iiJ0y1NHYfORX2D.APIbjnlx1'
 
 # pacman setup
@@ -69,3 +70,4 @@ sudo -u diak bash "$SCRIPT_DIR/userspace.sh"
 
 # sudo requires password
 echo "%wheel ALL=(ALL) ALL" >/etc/sudoers.d/wheel
+chmod 440 /etc/sudoers.d/wheel
