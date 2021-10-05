@@ -5,7 +5,7 @@ cd build
 wsl --set-default-version 1
 
 :: download archwsl https://github.com/yuk7/ArchWSL
-curl.exe -LO https://github.com/yuk7/ArchWSL/releases/latest/download/Arch.zip
+curl.exe -LO https://github.com/yuk7/ArchWSL/releases/download/21.7.16.0/Arch.zip
 tar -xvf Arch.zip
 
 Arch.exe help
