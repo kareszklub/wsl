@@ -16,7 +16,7 @@ Arch.exe help
 Arch.exe runp ../scripts/postinstall.sh
 Arch.exe config --default-user diak
 
-Arch.exe backup
+Arch.exe backup --tgz
 move backup.tar.gz kareszwsl.tar.gz
 
 Arch.exe clean -y
