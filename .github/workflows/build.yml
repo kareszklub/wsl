@@ -1,0 +1,17 @@
+name: build-rootfs
+
+on: workflow_dispatch
+
+jobs:
+    build:
+        runs-on: windows-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+            - name: run build script
+              run: scripts/build.cmd
+            - name: save artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: rootfs
+                  path: build/kareszwsl.tar.gz
