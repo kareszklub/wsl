@@ -8,6 +8,10 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v2
+            - name: convert shell scripts
+              run: |
+                  ((Get-Content scripts/postinstall.sh) -join "`n") + "`n" | Set-Content -NoNewline scripts/postinstall.sh
+                  ((Get-Content scripts/userspace.sh) -join "`n") + "`n" | Set-Content -NoNewline scripts/userspace.sh
             - name: run build script
               run: scripts/build.cmd
             - name: save artifact
@@ -15,3 +19,13 @@ jobs:
               with:
                   name: rootfs
                   path: build/kareszwsl.tar.gz
+            - name: create env for release
+              run: |
+                  echo "RELEASE_DATE=$(Get-Date (Get-Date).ToUniversalTime() -UFormat '%Y.%m.%d - %R')" >> $GITHUB_ENV
+            - name: release
+              uses: softprops/action-gh-release@v1
+              with:
+                  name: ${{env.RELEASE_DATE}}
+                  files: build/kareszwsl.tar.gz
+              env:
+                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
