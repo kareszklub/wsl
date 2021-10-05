@@ -10,6 +10,7 @@ tar -xvf Arch.zip
 
 Arch.exe help
 Arch.exe install
+Arch.exe help
 
 :: run post-install script
 Arch.exe runp ../scripts/postinstall.sh
