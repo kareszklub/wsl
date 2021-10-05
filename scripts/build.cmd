@@ -8,6 +8,7 @@ wsl --set-default-version 1
 curl.exe -LO https://github.com/yuk7/ArchWSL/releases/latest/download/Arch.zip
 tar -xvf Arch.zip
 
+Arch.exe help
 Arch.exe install
 
 :: run post-install script
