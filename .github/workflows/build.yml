@@ -22,11 +22,14 @@ jobs:
             - name: create env for release
               run: |
                   echo "RELEASE_DATE=$(Get-Date (Get-Date).ToUniversalTime() -UFormat '%Y.%m.%d - %R')" >> $GITHUB_ENV
+                  echo "LAST_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
             - name: release
               uses: ncipollo/release-action@v1
               with:
                   allowUpdates: false
                   artifactErrorsFailBuild: true
                   artifacts: build/kareszwsl.tar.gz
+                  commit: ${{env.LAST_COMMIT}}
                   name: ${{env.RELEASE_DATE}}
+                  tag: ${{env.RELEASE_DATE}}
                   token: ${{secrets.GITHUB_TOKEN}}
