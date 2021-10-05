@@ -9,6 +9,7 @@ else
 fi
 
 SCRIPT_DIR=$(dirname $(readlink -f "$0"))
+COUNTRY_CODE=$(curl -sL ipinfo.io/country)
 
 # create default user
 # (sudo will need a password later, this is userful for the installer)
@@ -21,7 +22,7 @@ pacman-key --init && pacman-key --populate
 # generate mirrorlist
 pacman -Sy --noconfirm reflector
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-reflector -c hu -p https --sort rate --save /etc/pacman.d/mirrorlist
+reflector -c $COUNTRY_CODE -p https --sort rate --save /etc/pacman.d/mirrorlist
 
 # install some packages
 pacman -Syu --noconfirm --needed \

@@ -1,6 +1,9 @@
 mkdir build
 cd build
 
+:: set wsl version (just in case)
+wsl --set-default-version 1
+
 :: download archwsl https://github.com/yuk7/ArchWSL
 curl.exe -LO https://github.com/yuk7/ArchWSL/releases/latest/download/Arch.zip
 tar -xvf Arch.zip
