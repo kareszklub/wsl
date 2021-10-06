@@ -39,14 +39,16 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                 path: build/
+            - name: tree
+              run: tree
             - name: release
               uses: ncipollo/release-action@v1
               with:
                   allowUpdates: false
                   artifactErrorsFailBuild: true
                   artifacts: |
-                      build/kareszwsl.tar.gz
-                      build/wsldl.zip
+                      build/artifact/kareszwsl.tar.gz
+                      build/artifact/wsldl.zip
                   commit: ${{env.LAST_COMMIT}}
                   name: ${{env.RELEASE_DATE}}
                   tag: ${{env.RELEASE_DATE}}
