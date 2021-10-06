@@ -10,7 +10,7 @@ curl.exe -O "https://github.com/yuk7/wsldl/releases/latest/download/wsldl.exe"
 
 ..\rcedit.exe wsldl.exe --set-icon ..\..\etc\karesz.ico
 
-copy ..\kareszwsl.tar.gz .\kareszwsl.tar.gz
+copy ..\kareszwsl.tar.gz .\rootfs.tar.gz
 cd ..
 
 powershell Compress-Archive wsldl/* wsldl.zip
