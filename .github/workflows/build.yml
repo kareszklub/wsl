@@ -46,9 +46,7 @@ jobs:
               with:
                   allowUpdates: false
                   artifactErrorsFailBuild: true
-                  artifacts: |
-                      build/artifact/kareszwsl.tar.gz
-                      build/artifact/wsldl.zip
+                  artifacts: build/artifact/*
                   commit: ${{env.LAST_COMMIT}}
                   name: ${{env.RELEASE_DATE}}
                   tag: ${{env.RELEASE_DATE}}
