@@ -20,17 +20,23 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: rootfs
+                  if-no-files-found: error
                   path: |
                       build/kareszwsl.tar.gz
-                      build/wsldl/
-            - name: create env for release
-              run: |
-                  echo "RELEASE_DATE=$(Get-Date (Get-Date).ToUniversalTime() -UFormat '%Y.%m.%d - %R')" >> $GITHUB_ENV
-                  echo "LAST_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
-            - name: test env vars
-              run: |
-                  echo ${{env.RELEASE_DATE}}
-                  echo ${{env.LAST_COMMIT}}
+                      build/wsldl
+
+    release:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+            - name: prepare
+              run: mkdir build
+            - name: download artifact
+              uses: actions/download-artifact@v2
+              with:
+                path: build/
             - name: release
               uses: ncipollo/release-action@v1
               with:
