@@ -19,7 +19,6 @@ jobs:
             - name: save artifact
               uses: actions/upload-artifact@v2
               with:
-                  name: rootfs
                   if-no-files-found: error
                   path: |
                       build/kareszwsl.tar.gz
