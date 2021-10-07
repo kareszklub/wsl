@@ -20,10 +20,10 @@ useradd -mG wheel -s /bin/bash diak -p '$6$nI/Ya5wm4s9xzbWL$3bmSK4Y.vqFnxDQCof.s
 
 # copy base home directory
 echo "copying base home directory"
-sudo -u diak cp -rvL "$SCRIPT_DIR/../home/*" "/home/diak/"
+sudo -u diak cp -rvLT "$SCRIPT_DIR/../home/" "/home/diak/"
+
 # pacman setup
 pacman-key --init && pacman-key --populate
-
 # install some packages
 echo "installing packages"
 # generate mirrorlist
