@@ -8,10 +8,6 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v2
-            - name: convert shell scripts
-              run: |
-                  ((Get-Content scripts/postinstall.sh) -join "`n") + "`n" | Set-Content -NoNewline scripts/postinstall.sh
-                  ((Get-Content scripts/userspace.sh) -join "`n") + "`n" | Set-Content -NoNewline scripts/userspace.sh
             - name: run build script
               run: scripts/build.cmd
             - name: create wsldl installer
