@@ -18,6 +18,8 @@ if ! builtin type -p 'yay' >/dev/null 2>&1; then
     rm -rf "${tmpdir}"
 fi
 
+cd ~
+
 # install oh my zsh (https://github.com/ohmyzsh/ohmyzsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 # also install some plugins
