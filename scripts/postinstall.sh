@@ -71,7 +71,8 @@ pacman -Syu --noconfirm --needed \
     python2-pip \
     bind-tools \
     tree \
-    zsh
+    zsh \
+    github-cli
 
 # run user script
 echo "running user script"
