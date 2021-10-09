@@ -12,9 +12,10 @@ Arch.exe help
 Arch.exe install
 Arch.exe help
 
+Arch.exe config --append-path false
+
 :: run post-install script
 Arch.exe runp ../scripts/postinstall.sh
-Arch.exe config --default-user diak
 
 Arch.exe backup --tgz
 move backup.tar.gz kareszwsl.tar.gz
