@@ -9,7 +9,6 @@ else
 fi
 
 SCRIPT_DIR=$(dirname $(readlink -f "$0"))
-COUNTRY_CODE=$(curl -sL ipinfo.io/country) # used for generating a mirrorlist
 
 # create default user
 # (sudo will need a password later, this is userful for the installer)
@@ -22,15 +21,13 @@ useradd -mG wheel -s /usr/bin/zsh diak -p '$6$nI/Ya5wm4s9xzbWL$3bmSK4Y.vqFnxDQCo
 echo "copying base home directory"
 sudo -u diak cp -rvLT "$SCRIPT_DIR/../home/" "/home/diak/"
 
+echo "installing packages"
 # pacman setup
 pacman-key --init && pacman-key --populate
-# install some packages
-echo "installing packages"
 # generate mirrorlist
-pacman -Sy --noconfirm --needed reflector
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-echo "generating mirrorlist in $COUNTRY_CODE"
-reflector -c $COUNTRY_CODE -p https --sort rate --save /etc/pacman.d/mirrorlist
+echo 'Server = https://cloudflaremirrors.com/archlinux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
+# install some packages
 pacman -Syu --noconfirm --needed \
     autoconf \
     automake \
