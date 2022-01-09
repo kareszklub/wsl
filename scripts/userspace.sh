@@ -20,11 +20,6 @@ fi
 
 cd ~
 
-# install oh my zsh (https://github.com/ohmyzsh/ohmyzsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
-# also install some plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 # install nvm (https://github.com/nvm-sh/nvm) and the latest stable node version
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | NODE_VERSION="node" bash
 export NVM_DIR="$HOME/.nvm"

@@ -68,8 +68,12 @@ pacman -Syu --noconfirm --needed \
     python2-pip \
     bind-tools \
     tree \
+    github-cli \
     zsh \
-    github-cli
+    zsh-autosuggestions \
+    zsh-syntax-highlighting \
+    zsh-history-substring-search \
+    starship
 
 # run user script
 echo "running user script"
