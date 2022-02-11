@@ -65,7 +65,6 @@ pacman -Syu --noconfirm --needed \
     python \
     python2 \
     python-pip \
-    python2-pip \
     bind-tools \
     tree \
     github-cli \
