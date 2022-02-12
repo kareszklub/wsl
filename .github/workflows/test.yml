@@ -1,0 +1,14 @@
+name: test-build
+
+on: workflow_dispatch
+
+jobs:
+    test:
+        runs-on: windows-2022
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+            - name: run build script
+              run: scripts/build.cmd
+            - name: create wsldl installer
+              run: scripts/wsldl.cmd

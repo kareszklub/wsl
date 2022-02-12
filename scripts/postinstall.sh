@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# fail the whole thing if one command fails
+set -e
+
 # only run as root
 if (($(id -u) == 0)); then
     echo "user is root"

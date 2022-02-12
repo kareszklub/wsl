@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # install yay (https://github.com/Jguer/yay)
 if ! builtin type -p 'yay' >/dev/null 2>&1; then
     echo 'Install yay.'

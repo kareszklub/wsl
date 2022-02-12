@@ -19,7 +19,8 @@ jobs:
                   path: |
                       build/kareszwsl.tar.gz
                       build/wsldl.zip
-
+                      build/wsldl-online.zip
+                      
     release:
         needs: build
         runs-on: ubuntu-latest
