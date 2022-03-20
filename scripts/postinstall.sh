@@ -82,4 +82,9 @@ sudo -u diak bash "$SCRIPT_DIR/userspace.sh"
 echo "%wheel ALL=(ALL) ALL" >/etc/sudoers.d/wheel
 chmod 440 /etc/sudoers.d/wheel
 
+# clear the pacman cache
+echo "clearing the pacman cache ($(du -h /var/cache/pacman/pkg | awk '{print $1}'))"
+pacman --noconfirm -Scc
+rm /var/cache/pacman/pkg/*
+
 echo "post-install script completed"
